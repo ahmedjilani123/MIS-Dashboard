@@ -19,4 +19,4 @@ Data representations
 <img src="./Images/das7.png" width="800px" height="auto"/>
 <h3>expandable functionality</h3>
 <img src="./Images/das8.png" width="800px" height="auto"/>
-<h1>----------------End--------------------</h1>
+<h1>------------------------End---------------------------</h1>
