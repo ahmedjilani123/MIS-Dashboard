@@ -1,0 +1,70 @@
+[{
+    "firstData":"Bio Business",
+    "Table":[
+        {
+            "secondData":"Cost fo Goods sold",
+            "name1":12,
+            "name2":89,
+            "name3":78
+        },
+        {
+            "secondData":"Revenue",
+            "name1":90,
+            "name2":78,
+            "name3":56
+        },
+        {
+            "secondData":"Field Trial",
+            "name1":78,
+            "name2":89,
+            "name3":45
+        }
+    ]
+},
+{
+    "firstData":"Forwarding and Transportation",
+    "Table":[
+        {
+            "secondData":"Distribution",
+            "name1":67,
+            "name2":45,
+            "name3":65
+        },
+        {
+            "secondData":"C & F Charges",
+            "name1":67,
+            "name2":23,
+            "name3":24
+        },
+        {
+            "secondData":"Travelling Bio",
+            "name1":88,
+            "name2":90,
+            "name3":67
+        }
+    ]
+},
+{
+    "firstData":"Product Development / R and D",
+    "Table":[
+        {
+            "secondData":"Salary Bio PD",
+            "name1":89,
+            "name2":78,
+            "name3":56
+        },
+        {
+            "secondData":"Licenses - Biological",
+            "name1":45,
+            "name2":65,
+            "name3":23
+        },
+        {
+            "secondData":"Other Cost -Product Development / R&D",
+            "name1":74,
+            "name2":89,
+            "name3":34
+        }
+    ]
+}
+]

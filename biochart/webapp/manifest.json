@@ -1,0 +1,130 @@
+{
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "sap.aj.biochart",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.13.0",
+      "toolsId": "f05d5b1c-5a59-475d-8f1a-7b8a2526c15c"
+    },
+    "dataSources": {
+      "MainBio":{
+        "uri": "model/headerData.json",
+        "type": "JSON"
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.121.2",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "sap.aj.biochart.i18n.i18n"
+        }
+      },
+      "MainData":{
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "MainBio"
+      },
+      "secondData":{
+        "type": "sap.ui.model.json.JSONModel"
+      },
+      "secondDataBio":{
+        "type": "sap.ui.model.json.JSONModel"
+      },
+      "MainSubData":{
+        "type": "sap.ui.model.json.JSONModel"
+      },
+      "ChartModelData":{
+        "type": "sap.ui.model.json.JSONModel"
+      },
+      "ChartModelFullData":{
+        "type": "sap.ui.model.json.JSONModel"
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "sap.aj.biochart.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteView1",
+          "pattern": ":?query:",
+          "target": [
+            "TargetView1"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetView1": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "View1",
+          "viewName": "View1"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "sap.aj.biochart.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

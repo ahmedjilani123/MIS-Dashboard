@@ -1,0 +1,97 @@
+<mvc:View controllerName="sap.aj.biochart.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:fb="sap.ui.comp.filterbar">
+    <Page id="page" title="{i18n>title}" showHeader="false">
+        <content>
+            <core:Fragment fragmentName="sap.aj.biochart.Fragments.mainHeader" type="XML"/>
+            <f:DynamicPage >
+                <f:header>
+                    <f:DynamicPageHeader>
+                        <f:content>
+                            <fb:FilterBar id="filterbar" showFilterConfiguration="false" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
+                                <fb:filterGroupItems>
+                                    <fb:FilterGroupItem name="Name" label="Select Group" groupName="Group1" visibleInFilterBar="true">
+                                        <fb:control>
+                                            <Select id="MainSection_Id" forceSelection="false" required="true" change="FilterBioHandlePress">
+                                                <core:Item text="Bio" key="/BioSet"></core:Item>
+                                                <core:Item text="Revenue" key="/RevenueSet"></core:Item>
+                                            </Select>
+                                        </fb:control>
+                                    </fb:FilterGroupItem>
+                                    <fb:FilterGroupItem name="second" label="Particulars" groupName="Group1" visibleInFilterBar="true">
+                                        <fb:control>
+                                            <Select id="firstSelectedKey_Id" forceSelection="false" items="{MainSubData>/}" change="FilterSecondBioHandlePress">
+                                                <core:Item text="{MainSubData>firstData}" key="{MainSubData>firstData}"></core:Item>
+                                            </Select>
+                                        </fb:control>
+                                    </fb:FilterGroupItem>
+                                    <fb:FilterGroupItem name="seconds" label="Sub Particular" groupName="Group1" visibleInFilterBar="true">
+                                        <fb:control>
+                                            <Select id="selectSubId" forceSelection="false" selectedKey="" items="{secondDataBio>/}" change="FilterSubBioHandlePress">
+
+                                                <core:Item text="{secondDataBio>secondData}" key="{secondDataBio>secondData}"></core:Item>
+                                            </Select>
+                                        </fb:control>
+                                    </fb:FilterGroupItem>
+                                </fb:filterGroupItems>
+                            </fb:FilterBar>
+                        </f:content>
+                    </f:DynamicPageHeader>
+                </f:header>
+                <f:content>
+                    <List id="homelistID" items="{secondData>/}" showNoData="true" noDataText="No Query selected">
+                        <items>
+                            <CustomListItem type="Inactive">
+                                <Panel id="homePanelID" expandable="true" expanded="true" class="sapUiSmallMarginTop" stickyHeader="true">
+                                    <headerToolbar>
+                                        <OverflowToolbar>
+                                            <Title text="{secondData>firstData}"/>
+                                            <ToolbarSpacer />
+                                            <Button icon="sap-icon://excel-attachment" press="ExcelExportDataPress" />
+                                            <Button icon="sap-icon://area-chart" press="ViewChartAllDataPress"/>
+                                        </OverflowToolbar>
+                                    </headerToolbar>
+                                    <content>
+                                        <Table items="{secondData>newTable}" alternateRowColors="true">
+                                            <columns>
+                                                <Column >
+                                                    <Label text="Actual"/>
+                                                </Column>
+                                                <Column >
+                                                    <Label text="Budget"/>
+                                                </Column>
+                                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                                    <Label text="Last Year"/>
+                                                </Column>
+                                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                                    <Label text="Good Name" />
+                                                </Column>
+                                                <Column >
+                                                    <Label text="View Data" />
+                                                </Column>
+                                            </columns>
+                                            <items>
+                                                <ColumnListItem >
+                                                    <cells>
+                                                        <Text text="{secondData>name1}"></Text>
+                                                        <Text text="{secondData>name2}"></Text>
+                                                        <Text text="{secondData>name3}"></Text>
+                                                        <Text text="{secondData>secondData}"></Text>
+                                                        <Link text="ViewChart" press="ViewChartSingleDataPress"></Link>
+                                                    </cells>
+                                                </ColumnListItem>
+                                            </items>
+                                        </Table>
+                                    </content>
+                                </Panel>
+                            </CustomListItem>
+                        </items>
+                    </List>
+                </f:content>
+            </f:DynamicPage>
+        </content>
+    </Page>
+</mvc:View>

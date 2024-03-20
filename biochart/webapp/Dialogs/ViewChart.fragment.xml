@@ -1,0 +1,63 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+     xmlns:data="sap.viz.ui5.data"
+      xmlns:feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:controls="sap.viz.ui5.controls"
+    xmlns:commons="sap.suite.ui.commons">
+<Dialog title="Details" contentWidth="500px" contentHeight="480px">
+ <customHeader>
+        <Bar>
+            <contentLeft>
+              <Title text="View Data" />
+            </contentLeft>
+            <contentRight>
+            <Button icon="sap-icon://decline" press="CloseDialogPress"></Button>
+            </contentRight>
+                
+            
+        </Bar>
+    </customHeader>
+<content>
+                        <!-- <commons:ChartContainer width="100%" id="firstPlantC_Id" showFullScreen="true" showLegendButton="false" showLegend="true" showZoom="false" contentChange="firstContainerCPress">
+                            <commons:customIcons>
+                                <core:Icon id="PlantWise_excel0" src="sap-icon://excel-attachment" visible="false" press="onExportPress"></core:Icon>
+
+                            </commons:customIcons>
+                            <commons:content>
+                                <commons:ChartContainerContent icon="sap-icon://vertical-stacked-chart">
+                                    <commons:content> -->
+                                        <controls:VizFrame vizType="bar" id="firstTableSingleId"  legendVisible="true" width="500px" height="480px">
+                                            <controls:dataset>
+                                                <data:FlattenedDataset data="{ChartModelData>/}">
+                                                    <data:dimensions>
+                                                        <data:DimensionDefinition name="Good" value="{ChartModelData>secondData}"></data:DimensionDefinition>
+                                                    </data:dimensions>
+                                                    <data:measures>
+                                                        <data:MeasureDefinition name="Actual" value="{ChartModelData>name1}"></data:MeasureDefinition>
+                                                         <data:MeasureDefinition name="Budget" value="{ChartModelData>name2}"></data:MeasureDefinition>
+                                                          <data:MeasureDefinition name="Last Year" value="{ChartModelData>name3}"></data:MeasureDefinition>
+                                                    </data:measures>
+                                                </data:FlattenedDataset>
+                                            </controls:dataset>
+                                            <controls:feeds>
+                                                <feeds:FeedItem values="Actual" uid="valueAxis" type="Measure"></feeds:FeedItem>
+                                                 <feeds:FeedItem values="Budget" uid="valueAxis" type="Measure"></feeds:FeedItem>
+                                                  <feeds:FeedItem values="Last Year" uid="valueAxis" type="Measure"></feeds:FeedItem>
+                                                <feeds:FeedItem values="Good" uid="categoryAxis" type="Dimension"></feeds:FeedItem>
+                                            </controls:feeds>
+                                        </controls:VizFrame>
+                                    <!-- </commons:content>
+                                </commons:ChartContainerContent>
+                               
+
+                            </commons:content>
+                        </commons:ChartContainer>
+                        <Text text="{ChartModelData>name1}"></Text> -->
+                  
+</content>
+<beginButton>
+<Button text="Close" press="CloseDialogPress"></Button>
+</beginButton>
+</Dialog>
+</core:FragmentDefinition>
